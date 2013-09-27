@@ -1,4 +1,4 @@
 code1
 =====
 
-CodOne Omaha hackathon
+CodeOne Omaha hackathon
