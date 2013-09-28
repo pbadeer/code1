@@ -3,7 +3,7 @@
 	require_once('inc/config.php');
 
 	
-	echo json_encode(getCommentsFor(25));
+	echo json_encode(getCommentsFor($_GET['id']));
 
 
 	function getCommentsFor($ideaId){		

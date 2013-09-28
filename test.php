@@ -88,26 +88,23 @@
 						"Has this been implemented?",
 						"Status on this?");
 
-		$rangeQuery = "select min(IDEAID),max(IDEAID) from IDEAS";
-		$res = mysql_query($rangeQuery);
-		$res = mysql_fetch_array($res);
-		var_dump($res);
-	*/
+		
 
-	/*	$f = 0;
+		$f = 0;
 
 		for($i=1;$i<16;$i++){
-			$commentCount = rand(0,40);
+			$commentCount = rand(0,30);
 			for($j=0;$j<=$commentCount;$j++){
 
 				$commentQuery = "insert into COMMENTS(IDEAID,COMMENTTEXT,AUTHOR,TIMSTMP,UPVOTES,DOWNVOTES) values(".$i.", '".$qArray[rand(0,count($qArray)-1)]."', '".$users[rand(0,49)]."' , now() ,".rand(0,10)." , ".rand(0,5).");";
-				$res = mysql_query($commentQuery)or die(mysql_error());
-				echo $res.'<br>';
+				//$res = mysql_query($commentQuery)or die(mysql_error());
+				echo $commentQuery.'<br>';
 				$f++;
 			}
 		}
 
-		echo $f;*/
+		echo $f;
+		*/
 
 		/*foreach ($qArray as $key => $value) {
 			$res = mysql_query($value);
@@ -139,5 +136,9 @@
 			echo $row['IDEAID']."----".$row['UPVOTE']."--".$row["DOWNVOTE"].'<br>';
 		}
 	*/
+
+	/*$q = "select count(*) from COMMENTS";
+	$res = mysql_query($q) or die(mysql_error());
+	var_dump(mysql_fetch_assoc($res));*/
 
 ?>
