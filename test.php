@@ -375,10 +375,31 @@
 		$res = mysql_query($q) or die(mysql_error());
 	}*/
 
+
+	/*REDO. This is the comment timestamp stuff. Rerun it later*/
+
 	/*for($i=1;$i<16;$i++)	{
-		$q = "select TMSTMP from IDEAS where IDEAID=".$i;
+		$q = "select TMSTMP as tmstmp from IDEAS where IDEAID=".$i;
 		$res = mysql_query($q) or die(mysql_error());
-		var_dump(mysql_fetch_assoc($res)).'<br>';
+		$row = mysql_fetch_assoc($res);
+		$t = $row['tmstmp'];
+
+		echo $t.'<br>';
+
+		$commentCount = "select min(ID), max(ID) from COMMENTS where IDEAID=".$i;
+		$resc = mysql_query($commentCount)or die(mysql_error());
+		$crow = mysql_fetch_array($resc);
+		var_dump($crow);
+		$min = $crow[0]; $max = $crow[1];
+
+		echo $min;
+
+		for($j = $min;$j<$max+1;$j++){
+			$h = rand(0,60*60*2);
+			$cQuery = "UPDATE COMMENTS SET TIMSTMP=date_add(now(), interval +".$h." second) where ID=".$j;
+			$result = mysql_query($cQuery) or die(mysql_error());
+		}
+
 	}*/
 
 ?>
