@@ -11,6 +11,7 @@
 		}
 	*/
 
+	/*
 		$users = array("albrooks",
 						"alhall",
 						"alscott",
@@ -61,6 +62,8 @@
 						"sostewart",
 						"strivera",
 						"zolee");
+			*/
+	
 	/*
 		$qArray = array("I love it!",
 						"Yay!",
@@ -365,7 +368,8 @@
 		foreach ($queries as $key => $value) {
 			$res = mysql_query($value) or die(mysql_error());
 			echo $res.'<br>';
-		}*/
+		}
+	*/
 
 
 
@@ -402,7 +406,7 @@
 
 	}*/
 
-	/*Adding badges to the DB*/
+	//Adding badges to the DB
 
 	/*	$badges = array("insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(1, 'Admin' , 'Admin badge', 'http://pbport.com/adi/badges/badge.png');",
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(2, 'Bolt' , 'Two ideas! On a roll', 'http://pbport.com/adi/badges/bolt.png');",
@@ -474,6 +478,24 @@
 			}
 
 		}*/
+
+		/*
+				$q = "select count(*) as num, USERNAME from IDEAS group by USERNAME";
+				$r = mysql_query($q) or die(mysql_error());
+				while($row = mysql_fetch_assoc($r)){
+					$iq = "update USERS set POINTS = POINTS +".($row["num"]*100)." where USERNAME='".$row["USERNAME"]."'";
+					mysql_query($iq)or die(mysql_error());
+				}
+		*/
+
+		$q = "select USERNAME,POINTS from USERS";
+		$r = mysql_query($q) or die(mysql_error());
+		while($row = mysql_fetch_assoc($r)){
+			var_dump($row);
+			echo '<br>';
+		}
+
+
 
 
 ?>
