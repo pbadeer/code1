@@ -1,6 +1,6 @@
 <?php 
 
-	require_once("inc/config.php");
+	require_once('inc/config.php');
 
 	$jsonString = '[
 				    {
@@ -1305,13 +1305,17 @@
 				    }
 				]';
 
-	$users = json_decode($jsonString,TRUE);
 
+
+	$users = json_decode($jsonString,TRUE);
 	foreach ($users as $key => $value) {
 		$user = $value["user"];
-		$query = "insert into users(firstName , lastName , title , gender , street , city , state  , email , password , md5Hash ,shaHash , phone , cell ,ssn , picture,username ) values ('".$user["name"]["first"]."' , '".$user["name"]["last"]."' , '".$user["name"]["title"]."' , '".$user["gender"]."' , '".$user["location"]["street"]."' , '".$user["location"]["city"]."' , '".$user["location"]["state"]."' , ".$user["location"]["zip"].", '".$user["email"]."' , '".$user["password"]."' , '".$user["md5_hash"]."' , '".$user["sha1_hash"]."' , '".$user["phone"]."' , '".$user["cell"]."' , '".$user["SSN"]."' , '".$user["picture"]."' , '".(substr($user["name"]["first"], 0,1).$user["name"]["last"])."');<br>";
-		$res = mysql_query($query);
-		echo $res.'<br>';
+		$query = "insert into USERS(FIRSTNAME ,	LASTNAME ,	TITLE ,	GENDER ,	STREET ,	CITY ,	STATE ,	ZIPCODE ,	EMAIL ,	PASSWORD ,	MD5HASH,	SHAHASH,	PHONE ,	CELL ,	SSN ,	PICTURE ,	USERNAME) values ('".$user["name"]["first"]."' , '".$user["name"]["last"]."' , '".$user["name"]["title"]."' , '".$user["gender"]."' , '".$user["location"]["street"]."' , '".$user["location"]["city"]."' , '".$user["location"]["state"]."' , ".$user["location"]["zip"].", '".$user["email"]."' , '".$user["password"]."' , '".$user["md5_hash"]."' , '".$user["sha1_hash"]."' , '".$user["phone"]."' , '".$user["cell"]."' , '".$user["SSN"]."' , '".$user["picture"]."' , '".(substr($user["name"]["first"], 0,2).$user["name"]["last"])."');";
+		echo $query;
+		$res = mysql_query($query) or die(mysql_error());
+
+		echo $query.'<br>';
+		
 	}
 
 
