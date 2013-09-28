@@ -115,10 +115,29 @@
 		}
 	*/
 
-	for($i=24;$i<39;$i++){
-		$q = "update IDEAS set DOWNVOTE=".rand(0,10)." where IDEAID = ".$i.";";
-		$res = mysql_query($q)or die(mysql_error());
-		echo $res;
-	}
+	/*	for($i=1;$i<16;$i++){
+			$q = "update IDEAS set UPVOTE=".rand(10,35)." where IDEAID = ".$i.";";
+			$res = mysql_query($q)or die(mysql_error());
+			echo $res;
+		}
+	*/
+
+
+
+	/*	for($i=1;$i<16;$i++){
+			$q = "update IDEAS set DOWNVOTE=".rand(0,10)." where IDEAID = ".$i.";";
+			$res = mysql_query($q)or die(mysql_error());
+			echo $res;
+		}
+	*/
+
+
+	/*	for($i=1;$i<16;$i++){
+			$q = "SELECT IDEAID, UPVOTE,DOWNVOTE from IDEAS where IDEAID = ".$i.";";
+			$res = mysql_query($q)or die(mysql_error());
+			$row = mysql_fetch_array($res);
+			echo $row['IDEAID']."----".$row['UPVOTE']."--".$row["DOWNVOTE"].'<br>';
+		}
+	*/
 
 ?>
