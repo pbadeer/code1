@@ -402,4 +402,30 @@
 
 	}*/
 
+	/*Adding badges to the DB*/
+
+		$badges = array("insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(1, 'Admin' , 'Admin badge', 'http://pbport.com/adi/badges/badge.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(2, 'Bolt' , 'Two ideas! On a roll', 'http://pbport.com/adi/badges/bolt.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(3, 'Brew' , 'Unlocked Level 3.Savour this moment', 'http://pbport.com/adi/badges/brew.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(4, 'Brush' , 'Posted 5 comments. Adding color', 'http://pbport.com/adi/badges/brush.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(5, 'Calendar' , 'Visited for 5 consecutive days', 'http://pbport.com/adi/badges/calendar.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(6, 'Eye' , 'Provided feedback. You have an eye for detail.', 'http://pbport.com/adi/badges/eye.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(7, 'Feather' , 'Posted 15 comments. Leaving a trail here.', 'http://pbport.com/adi/badges/feather.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(8, 'Goblet' , 'Unlocked Level 4.', 'http://pbport.com/adi/badges/goblet.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(9, 'Gold' , 'Idea implemented in labs. Whoo!', 'http://pbport.com/adi/badges/gold.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(10, 'Hat' , 'Posted 3 ideas. A beuatiful mind', 'http://pbport.com/adi/badges/hat.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(11, 'Heart' , 'Loving the ideas here :) ', 'http://pbport.com/adi/badges/heart.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(12, 'id' , '', 'http://pbport.com/adi/badges/id.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(13, 'Key' , 'Unlocked Level 1', 'http://pbport.com/adi/badges/key.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(14, 'Bug' , 'You are a lifesave. You caught a bug!', 'http://pbport.com/adi/badges/lifesaver.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(15, 'Bulb' , 'A smart idea posted', 'http://pbport.com/adi/badges/lightbulb.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(16, 'plugin' , 'Level 5 unlocked. One with us', 'http://pbport.com/adi/badges/plugin.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(17, 'Labs' , 'Unlocked Labs!', 'http://pbport.com/adi/badges/labs.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(18, 'Shoot' , 'Laying down your roots', 'http://pbport.com/adi/badges/shoot.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(19, 'Shout' , 'Has 25 upvotes. Your voice is being heard', 'http://pbport.com/adi/badges/shout.png');");
+
+		foreach ($badges as $key => $value) {
+			$res = mysql_query($value) or die(mysql_error());
+			echo $res;
+		}
 ?>
