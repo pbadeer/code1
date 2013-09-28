@@ -2,9 +2,10 @@
 
 
 
-	mysql_connect('127.0.0.1','root','root')or die(mysql_error());
+	
+	mysql_connect('pbport.com','pbportco_adi','chargingstation')or die(mysql_error());
 
-	mysql_select_db('codeone')
+	mysql_select_db('pbportco_adi')
 	 or die(mysql_error());
 
 
