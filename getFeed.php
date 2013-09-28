@@ -4,7 +4,19 @@
 	require_once('functions.php');
 
 	
-	echo json_encode(getCommentsFor($_GET['id']));
+
+	$feed = array();
+	$fQuery = "select * from IDEAS order by TMSTMP desc LIMIT 0,".$_GET['limit'];
+	$fRes = mysql_query($fQuery) or die(mysql_error());
+	while($frow = mysql_fetch_assoc($fRes)){
+		$frow['TIMEAGO'] = time_elapsed_string($frow['TMSTMP']);
+		$frow['comments'] = getCommentsFor($frow["IDEAID"]);
+		$feed[] = $frow;
+	}
+
+	echo json_encode($feed);
+
+
 
 
 	function getCommentsFor($ideaId){		
