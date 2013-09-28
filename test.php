@@ -11,40 +11,106 @@
 	}
 */
 
-	$qArray = array("insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values('credit card companies and banks had a minimal click option on their site & phone apps to let them know you are traveling internationally so their fraud protections do not automatically kick in and cancel/suspend your card?','samorgan',now(),0, 'idea');",
+/*	$users = array("albrooks",
+					"alhall",
+					"alscott",
+					"anlee",
+					"anmurphy",
+					"anwatson",
+					"auanderson",
+					"brallen",
+					"brdavis",
+					"cawright",
+					"chdiaz",
+					"chgray",
+					"chking",
+					"cotaylor",
+					"dycox",
+					"elgriffin",
+					"erwilson",
+					"etparker",
+					"gamartinez",
+					"gethompson",
+					"grking",
+					"hajackson",
+					"hathompson",
+					"heedwards",
+					"isjenkins",
+					"jacook",
+					"jehughes",
+					"joedwards",
+					"kemurphy",
+					"lawilliams",
+					"lecampbell",
+					"librooks",
+					"luramirez",
+					"magarcia",
+					"mapowell",
+					"nomartin",
+					"rigriffin",
+					"rijones",
+					"rimartin",
+					"sadiaz",
+					"saharris",
+					"samorgan",
+					"saprice",
+					"scgarcia",
+					"shhamilton",
+					"sogarcia",
+					"sohoward",
+					"sostewart",
+					"strivera",
+					"zolee");
 
+	$qArray = array("I love it!",
+					"Yay!",
+					"I agree",
+					"not sure that is a good idea.",
+					"I <3 FNBO ",
+					"This is great.",
+					"This is awful",
+					"Terrific, I love it",
+					"There are number of ways this can be improved",
+					"I think this can turn out to be an amazing feature",
+					"Idea is good, not sure about the execution",
+					"I have to disagree",
+					"Having been an FNBO customer for 15 years, I have to honestly say that this is one of the best things you have done",
+					"hmmm....Can you elaborate?",
+					"Is that typical for a bank?",
+					"FNBO rocks!",
+					"Wells Fargo sucks!",
+					"I was at your branch on 16th & Dodge today and the staff were amazing",
+					"This is really confusing",
+					"Go Big Red!",
+					"I am not at all happy with the bank. I will be taking my business elsewhere.",
+					"I love you guys. You rock!",
+					"That is AWESOME!",
+					"Has this been implemented?",
+					"Status on this?");
 
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values('there were an app that allowed you to take a picture of what you purchased so when you looked at your bank statement you remembered what #xxxxx... referred to.','grking',now(),0, 'idea');",
+	$rangeQuery = "select min(IDEAID),max(IDEAID) from IDEAS";
+	$res = mysql_query($rangeQuery);
+	$res = mysql_fetch_array($res);
+	var_dump($res);*/
 
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values('your credit/debit card company or bank provided a service to email you a copy of your receipt for everything you purchase?','anmurphy',now(),0, 'idea');",
+	$f = 0;
 
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values('Banking websites I.E. Pnc, TD, Chase Etc. had a calculator on site so I would not have to keep flipping between my homescreen and dashboard when doing my finances','etparker',now(),0, 'idea');",
+	for($i=1;$i<16;$i++){
+		$commentCount = rand(0,40);
+		for($j=0;$j<=$commentCount;$j++){
 
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'You could link your flybuys or any other loyalty card program to your credit/bank card to alleviate swiping twice & avoid clutter.','rijones',now(),0, 'idea');",
+			$commentQuery = "insert into COMMENTS(IDEAID,COMMENTTEXT,AUTHOR,TIMSTMP,UPVOTES,DOWNVOTES) values(".$i.", '".$qArray[rand(0,count($qArray)-1)]."', '".$users[rand(0,49)]."' , now() ,".rand(0,10)." , ".rand(0,5).");";
+			$res = mysql_query($commentQuery)or die(mysql_error());
+			echo $res.'<br>';
+			$f++;
+		}
+	}
 
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'Order cheque books from the bank with the press of a button in an app.','magarcia',now(),0, 'feedback');",
+	echo $f;
 
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'Can you implement a system where merchants could send itemized receipts to your bank account directly instead of paper one.','dycox',now(),0, 'idea');",
-
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'I wish the bank implemented two factor authentication for security. We are  really worried about the security','The Anonymous',now(),0, 'feedback');",
-
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'Is there a better way to connect with your bank than calling customer service.','jehughes',now(),0, 'feedback');",
-
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'The banks website needs some design changes to improve the UI/UX','jacook',now(),0, 'feedback');",
-
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'Can the bank offer piggy bank accounts to kids to teach them dealing with finances?','anonymous',now(),0, 'idea');",
-
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'The banks mobile site is as good as the app','samorgan',now(),0, 'feedback');",
-
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'Just rolled out ability to tag expenses to easily categorize your spending','zolee',now(),0, 'update');",
-
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'I love the new website.','samorgan',now(),0, 'feedback');",
-
-					"insert into IDEAS(IDEA,USERNAME,TMSTMP,ISIMPORTANT,TAG)values( 'It is hard to find the transfers page in the current design.','samorgan',now(),0, 'feedback');");
-
-	foreach ($qArray as $key => $value) {
+	/*foreach ($qArray as $key => $value) {
 		$res = mysql_query($value);
 		echo $res.'<br>';
-	}
+	}*/
 
 ?>
