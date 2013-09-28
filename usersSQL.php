@@ -1309,9 +1309,9 @@
 
 	foreach ($users as $key => $value) {
 		$user = $value["user"];
-		$query = "insert into users values ('".$user["name"]["first"]."' , '".$user["name"]["last"]."' , '".$user["name"]["title"]."' , '".$user["gender"]."' , '".$user["location"]["street"]."' , '".$user["location"]["city"]."' , '".$user["location"]["state"]."' , ".$user["location"]["zip"].", '".$user["email"]."' , '".$user["password"]."' , '".$user["md5_hash"]."' , '".$user["sha1_hash"]."' , '".$user["phone"]."' , '".$user["cell"]."' , '".$user["SSN"]."' , '".$user["picture"]."');<br>";
-		mysql_query($query);
-
+		$query = "insert into users(firstName , lastName , title , gender , street , city , state  , email , password , md5Hash ,shaHash , phone , cell ,ssn , picture,username ) values ('".$user["name"]["first"]."' , '".$user["name"]["last"]."' , '".$user["name"]["title"]."' , '".$user["gender"]."' , '".$user["location"]["street"]."' , '".$user["location"]["city"]."' , '".$user["location"]["state"]."' , ".$user["location"]["zip"].", '".$user["email"]."' , '".$user["password"]."' , '".$user["md5_hash"]."' , '".$user["sha1_hash"]."' , '".$user["phone"]."' , '".$user["cell"]."' , '".$user["SSN"]."' , '".$user["picture"]."' , '".(substr($user["name"]["first"], 0,1).$user["name"]["last"])."');<br>";
+		$res = mysql_query($query);
+		echo $res.'<br>';
 	}
 
 
