@@ -486,16 +486,30 @@
 					$iq = "update USERS set POINTS = POINTS +".($row["num"]*100)." where USERNAME='".$row["USERNAME"]."'";
 					mysql_query($iq)or die(mysql_error());
 				}
+		
+
+				$q = "select USERNAME,POINTS from USERS";
+				$r = mysql_query($q) or die(mysql_error());
+				while($row = mysql_fetch_assoc($r)){
+					var_dump($row);
+					echo '<br>';
+				}
 		*/
 
-		$q = "select USERNAME,POINTS from USERS";
-		$r = mysql_query($q) or die(mysql_error());
-		while($row = mysql_fetch_assoc($r)){
-			var_dump($row);
-			echo '<br>';
+
+		$q = "SELECT USERNAME,sum(UPVOTE) as total from IDEAS group by USERNAME";
+		$res = mysql_query($q) or die(mysql_error());
+		while($row = mysql_fetch_assoc($res)){
+			$iq = "update USERS set POINTS = POINTS +".($row["total"]*30)." where USERNAME='".$row["USERNAME"]."'";
+			mysql_query($iq)or die(mysql_error());
 		}
 
 
-
+		$q = "select USERNAME,POINTS from USERS";
+				$r = mysql_query($q) or die(mysql_error());
+				while($row = mysql_fetch_assoc($r)){
+					var_dump($row);
+					echo '<br>';
+				}
 
 ?>
