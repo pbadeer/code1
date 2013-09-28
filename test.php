@@ -11,7 +11,7 @@
 		}
 	*/
 
-	/*	$users = array("albrooks",
+		$users = array("albrooks",
 						"alhall",
 						"alscott",
 						"anlee",
@@ -61,7 +61,7 @@
 						"sostewart",
 						"strivera",
 						"zolee");
-
+	/*
 		$qArray = array("I love it!",
 						"Yay!",
 						"I agree",
@@ -404,7 +404,7 @@
 
 	/*Adding badges to the DB*/
 
-		$badges = array("insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(1, 'Admin' , 'Admin badge', 'http://pbport.com/adi/badges/badge.png');",
+	/*	$badges = array("insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(1, 'Admin' , 'Admin badge', 'http://pbport.com/adi/badges/badge.png');",
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(2, 'Bolt' , 'Two ideas! On a roll', 'http://pbport.com/adi/badges/bolt.png');",
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(3, 'Brew' , 'Unlocked Level 3.Savour this moment', 'http://pbport.com/adi/badges/brew.png');",
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(4, 'Brush' , 'Posted 5 comments. Adding color', 'http://pbport.com/adi/badges/brush.png');",
@@ -427,5 +427,53 @@
 		foreach ($badges as $key => $value) {
 			$res = mysql_query($value) or die(mysql_error());
 			echo $res;
-		}
+		}*/
+
+		/*$q = "alter table COMMENTS add column ISCHANGE tinyint(1) DEFAULT 0";
+		$res = mysql_query($q) or die(mysql_error());
+		echo $res;*/
+
+		/*$q = "DESC COMMENTS";
+		$res = mysql_query($q) or die(mysql_error());
+		while($row=mysql_fetch_assoc($res)){
+			var_dump($res);
+		}*/
+		/*
+		$q = "CREATE TABLE USERUPVOTES(USERNAME VARCHAR(16) NOT NULL,IDEAID INT NOT NULL,PRIMARY KEY (USERNAME, IDEAID));";
+		$q1 = "ALTER TABLE USERUPVOTES ADD FOREIGN KEY (IDEAID) REFERENCES IDEAS (IDEAID)	ON UPDATE RESTRICT	ON DELETE RESTRICT;";
+		$q2 = "ALTER TABLE USERUPVOTES	ADD FOREIGN KEY (USERNAME)	REFERENCES USERS (USERNAME)	ON UPDATE RESTRICT	ON DELETE RESTRICT;";
+		mysql_query($q) or die(mysql_error());
+		mysql_query($q1) or die(mysql_error());
+		mysql_query($q2) or die(mysql_error());*/
+
+		/*
+		$q = "select count(*) from USERUPVOTES";
+		$r = mysql_query($q) or die(mysql_error());
+		$r = mysql_fetch_array($r);
+		var_dump($r);*/
+
+		/*
+		for($i=1;$i<16;$i++){
+
+			$q = "Select UPVOTE from IDEAS where IDEAID =".$i;
+			$res = mysql_query($q) or die(mysql_error());
+			$row = mysql_fetch_assoc($res);
+			$count = $row['UPVOTE'];
+
+			$sanc = array();
+
+			for($j=0;$j<$count;$j++){
+
+				do{
+					$index = rand(0,count($users)-1);
+				}while(in_array($index,$sanc));
+
+				$sanc[] = $index;
+				$ins = "insert into USERUPVOTES values('".$users[$index]."' , ".$i.");";
+				mysql_query($ins) or die(mysql_error());
+			}
+
+		}*/
+
+
 ?>
