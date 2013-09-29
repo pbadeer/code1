@@ -669,5 +669,15 @@
 			mysql_query($iq) or die(mysql_error());
 		}*/
 
+		
+		$q = "select distinct USERNAME from IDEAS where TAG='feedback' and USERNAME in (select USERNAME from USERS);";
+		$r = mysql_query($q);
+		while($row = mysql_fetch_assoc($r)){
+
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,6);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+		}		
+
 
 ?>
