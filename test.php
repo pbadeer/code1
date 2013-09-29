@@ -729,7 +729,7 @@
 		mysql_query($q) or die(mysql_error());*/
 
 
-		$q = "SELECT count(*) as num ,AUTHOR from COMMENTS group by AUTHOR;";
+		/*$q = "SELECT count(*) as num ,AUTHOR from COMMENTS group by AUTHOR;";
 		$r = mysql_query($q) or die(mysql_error());
 		while($row = mysql_fetch_assoc($r)){
 
@@ -749,5 +749,29 @@
 			}
 			
 		}
+*/
+
+
+		$q = "SELECT count(*) as num ,USERNAME from USERUPVOTES group by USERNAME;";
+		$r = mysql_query($q) or die(mysql_error());
+		while($row = mysql_fetch_assoc($r)){
+
+			if($row["USERNAME"] == 'anonymous' || $row["USERNAME"] == 'The Anonymous')
+				continue;
+
+			if($row["num"] >=5){
+				$iq = "insert into BADGEMAP values ('".$row['USERNAME']."' , 18);";
+				echo $iq.'<br>';
+				mysql_query($iq) or die(mysql_error());
+			}
+
+			if($row["num"] >=10){
+				$iq = "insert into BADGEMAP values ('".$row['USERNAME']."' , 11);";
+				echo $iq.'<br>';
+				mysql_query($iq) or die(mysql_error());
+			}
+			
+		}
+
 
 ?>
