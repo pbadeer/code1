@@ -679,7 +679,7 @@
 			mysql_query($iq) or die(mysql_error());
 		}	*/	
 
-
+/*
 		$q = "select count(*) as num, USERNAME from IDEAS group by USERNAME;";
 		$r = mysql_query($q);
 		while($row = mysql_fetch_assoc($r)){
@@ -709,8 +709,20 @@
 			//$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,6);";
 			//echo $iq.'<br>';
 			//mysql_query($iq) or die(mysql_error());
-		}	
+		}	*/
 
+
+		/*$q = "update IDEAS set ISIMPLEMENTED=1 where IDEAID in (1,3,11)";
+		mysql_query($q) or die(mysql_error());*/
+
+
+		$q = "select distinct USERNAME from IDEAS where ISIMPLEMENTED=1 and USERNAME in (SELECT USERNAME from USERS);";
+		$r = mysql_query($q) or die(mysql_error());
+		while($row = mysql_fetch_assoc($r)){
+			$iq = "insert into BADGEMAP values ('".$row['USERNAME']."' , 9);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+		}
 
 
 ?>
