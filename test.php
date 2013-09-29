@@ -613,4 +613,26 @@
 			var_dump($row);echo '<br>';
 		}*/
 
+/*
+		$q = "select USERNAME,POINTS from USERS";
+		$r = mysql_query($q) or die(mysql_error());
+		while($row=mysql_fetch_assoc($r)){
+			echo $row['POINTS'].'<br>';
+		}*/
+
+
+		$q1 = "update USERS set LEVEL = 1 where POINTS < 100;";
+		
+		$q2 = "update USERS set LEVEL = 2 where POINTS < 250;";
+		
+		$q3 = "update USERS set LEVEL = 3 where POINTS < 500;";
+		
+		$q4 = "update USERS set LEVEL = 4 where POINTS < 1000;";
+
+		$q5 = "update USERS set LEVEL = 5 where POINTS < 2500;";
+		$rq5 = mysql_query($q5) or die(mysql_error());
+		$rq4 = mysql_query($q4) or die(mysql_error());
+		$rq3 = mysql_query($q3) or die(mysql_error());
+		$rq2 = mysql_query($q2) or die(mysql_error());
+		$rq1 = mysql_query($q1) or die(mysql_error());
 ?>
