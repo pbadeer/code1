@@ -669,7 +669,7 @@
 			mysql_query($iq) or die(mysql_error());
 		}*/
 
-		
+		/*
 		$q = "select distinct USERNAME from IDEAS where TAG='feedback' and USERNAME in (select USERNAME from USERS);";
 		$r = mysql_query($q);
 		while($row = mysql_fetch_assoc($r)){
@@ -677,7 +677,40 @@
 			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,6);";
 			echo $iq.'<br>';
 			mysql_query($iq) or die(mysql_error());
-		}		
+		}	*/	
+
+
+		$q = "select count(*) as num, USERNAME from IDEAS group by USERNAME;";
+		$r = mysql_query($q);
+		while($row = mysql_fetch_assoc($r)){
+
+			if($row["USERNAME"]=='anonymous' || $row["USERNAME"]=='The Anonymous')
+				continue;
+
+			if($row['num'] >= 1){
+				$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,15);";
+				echo $iq.'<br>';
+				mysql_query($iq) or die(mysql_error());
+			}
+
+			if($row['num'] >= 2){
+				$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,2);";
+				echo $iq.'<br>';
+				mysql_query($iq) or die(mysql_error());
+			}
+
+			if($row['num'] >= 3){
+				$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,10);";
+				echo $iq.'<br>';
+				mysql_query($iq) or die(mysql_error());
+			}
+
+
+			//$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,6);";
+			//echo $iq.'<br>';
+			//mysql_query($iq) or die(mysql_error());
+		}	
+
 
 
 ?>
