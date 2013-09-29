@@ -715,14 +715,39 @@
 		/*$q = "update IDEAS set ISIMPLEMENTED=1 where IDEAID in (1,3,11)";
 		mysql_query($q) or die(mysql_error());*/
 
-
+/*
 		$q = "select distinct USERNAME from IDEAS where ISIMPLEMENTED=1 and USERNAME in (SELECT USERNAME from USERS);";
 		$r = mysql_query($q) or die(mysql_error());
 		while($row = mysql_fetch_assoc($r)){
 			$iq = "insert into BADGEMAP values ('".$row['USERNAME']."' , 9);";
 			echo $iq.'<br>';
 			mysql_query($iq) or die(mysql_error());
-		}
+		}*/
+/*
 
+		$q = "UPDATE BADGES SET BADGEDESC='Posted 10 comments. Leaving a trail here!' where BADGEID=7";
+		mysql_query($q) or die(mysql_error());*/
+
+
+		$q = "SELECT count(*) as num ,AUTHOR from COMMENTS group by AUTHOR;";
+		$r = mysql_query($q) or die(mysql_error());
+		while($row = mysql_fetch_assoc($r)){
+
+			if($row["AUTHOR"] == 'anonymous' || $row["AUTHOR"] == 'The Anonymous')
+				continue;
+
+			if($row["num"] >=5){
+				$iq = "insert into BADGEMAP values ('".$row['AUTHOR']."' , 4);";
+				echo $iq.'<br>';
+				mysql_query($iq) or die(mysql_error());
+			}
+
+			if($row["num"] >=10){
+				$iq = "insert into BADGEMAP values ('".$row['AUTHOR']."' , 7);";
+				echo $iq.'<br>';
+				mysql_query($iq) or die(mysql_error());
+			}
+			
+		}
 
 ?>
