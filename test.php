@@ -555,14 +555,44 @@
 				mysql_query($q) or die(mysql_error());
 			}
 		}*/
-
+/*
 		$q = "select * from USERFAVORITES";
 				$r = mysql_query($q) or die(mysql_error());
 				while($row = mysql_fetch_assoc($r)){
 					var_dump($row);
 					echo '<br>';
-				}
+				}*/
 
+
+		/*$q = "alter TABLE COMMENTS add column FLAGCOUNT int DEFAULT 0";
+		mysql_query($q) or die(mysql_error());*/
+
+		/*$q = "alter TABLE COMMENTS change COMMENT FLAGCOUNT int DEFAULT 0";
+		mysql_query($q) or die(mysql_error());
+		$q = "DESC COMMENTS";
+		$res = mysql_query($q);
+		while($row = mysql_fetch_array($res)){
+			var_dump($row);
+		}
+*/
+
+		$q = "select min(ID) as min ,max(ID) as max from COMMENTS;";
+		$r = mysql_query($q) or die($q);
+		$r = mysql_fetch_assoc($r);
+
+		for($i = 0 ; $i <35 ; $i++){
+			$id = rand($r["min"],$r["max"]);
+			$flagCount = rand(1,10);
+			$qu = "UPDATE COMMENTS SET FLAGCOUNT=".$flagCount." , ISFLAGGED=1 where ID=".$id.";";
+			$ret = mysql_query($qu)  or die(mysql_error());
+			echo $ret.'<br>';
+		}
+
+		$q = "select ID, FLAGCOUNT from COMMENTS where ISFLAGGED=1 group by ID";
+		$r = mysql_query($q) or die(mysql_error());
+		while($row = mysql_fetch_assoc($r)){
+			var_dump($row);echo '<br>';
+		}
 
 
 ?>
