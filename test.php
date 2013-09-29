@@ -576,7 +576,7 @@
 		}
 */
 
-		$q = "select min(ID) as min ,max(ID) as max from COMMENTS;";
+	/*	$q = "select min(ID) as min ,max(ID) as max from COMMENTS;";
 		$r = mysql_query($q) or die($q);
 		$r = mysql_fetch_assoc($r);
 
@@ -592,7 +592,25 @@
 		$r = mysql_query($q) or die(mysql_error());
 		while($row = mysql_fetch_assoc($r)){
 			var_dump($row);echo '<br>';
+		}*/
+
+/*
+		$q = "select min(ID) as min ,max(ID) as max from COMMENTS;";
+		$r = mysql_query($q) or die($q);
+		$r = mysql_fetch_assoc($r);
+
+		for($i = 0 ; $i <35 ; $i++){
+			$id = rand($r["min"],$r["max"]);
+			$flagCount = rand(1,10);
+			$qu = "UPDATE COMMENTS SET  ISCHANGE=1 where ID=".$id.";";
+			$ret = mysql_query($qu)  or die(mysql_error());
+			echo $ret.'<br>';
 		}
 
+		$q = "select ID, ISCHANGE from COMMENTS where ISCHANGE=1";
+		$r = mysql_query($q) or die(mysql_error());
+		while($row = mysql_fetch_assoc($r)){
+			var_dump($row);echo '<br>';
+		}*/
 
 ?>
