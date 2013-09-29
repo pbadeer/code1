@@ -11,7 +11,7 @@
 		}
 	*/
 
-	/*
+	
 		$users = array("albrooks",
 						"alhall",
 						"alscott",
@@ -62,7 +62,7 @@
 						"sostewart",
 						"strivera",
 						"zolee");
-			*/
+			
 	
 	/*
 		$qArray = array("I love it!",
@@ -540,6 +540,28 @@
 					var_dump($row);
 					echo '<br>';
 				}*/
+
+
+	/*	for($i=1;$i<16;$i++){
+			$favCount = rand(3,17);
+			$userIndex = array();
+			for($j=0;$j<$favCount;$j++){
+				do{
+					$index = rand(0,49);	
+				}while(in_array($index, $userIndex));
+
+				$userIndex[] = $index;
+				$q = "insert into USERFAVORITES values( '".$users[$index]."' , ".$i.");";
+				mysql_query($q) or die(mysql_error());
+			}
+		}*/
+
+		$q = "select * from USERFAVORITES";
+				$r = mysql_query($q) or die(mysql_error());
+				while($row = mysql_fetch_assoc($r)){
+					var_dump($row);
+					echo '<br>';
+				}
 
 
 
