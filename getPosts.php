@@ -17,6 +17,10 @@
 		$feed[] = $frow;
 	}
 
+	
+
+	
+
 	echo json_encode($feed);
 
 
@@ -36,7 +40,7 @@
 		$query = "select * from COMMENTS where IDEAID=".$ideaId." order by TIMSTMP desc , UPVOTES desc";
 		$res = mysql_query($query) or die(mysql_error());
 		while($row = mysql_fetch_assoc($res)){
-			$row['timeAgo']= time_elapsed_string($row['TIMSTMP']);
+			$row['TIMEAGO']= time_elapsed_string($row['TIMSTMP']);
 			$allComments[] = $row;
 		}
 		return $allComments;

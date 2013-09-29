@@ -1,6 +1,6 @@
 var links = new Array(  
-
-						"http://pbport.com/adi/",
+						"http://pbport.com/adi/chat/",
+						"http://pbport.com/adi/feed.html",
 						"https://www.firstnational.com/site/personal/index.fhtml",
 						"https://www.firstnational.com/site/small-business/index.fhtml",
 						"https://www.firstnational.com/site/corporate/index.fhtml",
@@ -258,7 +258,7 @@ var links = new Array(
 						"https://www.firstnational.com/site/sitemap/");
 
 var titles = new Array(
-
+					"Chat",
 					"Feedback",
 					"Personal",
 					"Small Business",

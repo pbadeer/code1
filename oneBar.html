@@ -706,14 +706,15 @@
       $("#searchForm").submit(function(event){
           
           var string = $('#searchbox').val();          
-          if(string.length > 16){                                
+          if(string.length > 16){       
+              prompt("Please confirm your email","");                         
               $.ajax({
                     type:'POST',
                     url: 'addFeedback.php',
                     dataType :'string',
-                    data : { "fb" : string , "author" : 'zolee'},
+                    data : { "fb" : string , "author" : 'scgarcia'},
                     success: function(data){
-                      alert("success");
+                      alert("Thank you for your feeback. You can view your feedback by typing Feedback in the One bar");
                     },
                     complete:function(xhr,status){
                         if(status==='error' || !xhr.responseText){

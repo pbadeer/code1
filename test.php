@@ -11,8 +11,8 @@
 		}
 	*/
 
-	
-		/*$users = array("albrooks",
+	/*
+		$users = array("albrooks",
 						"alhall",
 						"alscott",
 						"anlee",
@@ -62,9 +62,9 @@
 						"sostewart",
 						"strivera",
 						"zolee");
-			*/
+			
 	
-	/*
+	
 		$qArray = array("I love it!",
 						"Yay!",
 						"I agree",
@@ -95,19 +95,25 @@
 
 		$f = 0;
 
-		for($i=1;$i<16;$i++){
+		for($i=20;$i<23;$i++){
 			$commentCount = rand(0,30);
 			for($j=0;$j<=$commentCount;$j++){
 
-				$commentQuery = "insert into COMMENTS(IDEAID,COMMENTTEXT,AUTHOR,TIMSTMP,UPVOTES,DOWNVOTES) values(".$i.", '".$qArray[rand(0,count($qArray)-1)]."', '".$users[rand(0,49)]."' , now() ,".rand(0,10)." , ".rand(0,5).");";
-				//$res = mysql_query($commentQuery)or die(mysql_error());
+				$commentQuery = "insert into COMMENTS(IDEAID,COMMENTTEXT,AUTHOR,TIMSTMP,UPVOTES,DOWNVOTES) values(".$i.", '".$qArray[rand(0,count($qArray)-1)]."', '".$users[rand(0,49)]."' , date_add(now() , INTERVAL  ".rand(5,90)." MINUTE) ,".rand(0,10)." , ".rand(0,5).");";
 				echo $commentQuery.'<br>';
+				$res = mysql_query($commentQuery)or die(mysql_error());
 				$f++;
 			}
 		}
 
-		echo $f;
-		*/
+		echo $f;*/
+
+	/*	$Q = "select * from IDEAS where IDEAID >15";
+		$r = mysql_query($Q);
+		while($row=mysql_fetch_assoc($r)){
+			var_dump($row).'<br>';
+		}*/
+		
 
 		/*foreach ($qArray as $key => $value) {
 			$res = mysql_query($value);
@@ -115,21 +121,21 @@
 		}
 	*/
 
-	/*	for($i=1;$i<16;$i++){
-			$q = "update IDEAS set UPVOTE=".rand(10,35)." where IDEAID = ".$i.";";
+		for($i=20;$i<23;$i++){
+			$q = "update IDEAS set UPVOTE=".rand(25,40)." where IDEAID = ".$i.";";
 			$res = mysql_query($q)or die(mysql_error());
 			echo $res;
 		}
-	*/
+	
 
 
 
-	/*	for($i=1;$i<16;$i++){
-			$q = "update IDEAS set DOWNVOTE=".rand(0,10)." where IDEAID = ".$i.";";
+		for($i=20;$i<23;$i++){
+			$q = "update IDEAS set DOWNVOTE=".rand(0,5)." where IDEAID = ".$i.";";
 			$res = mysql_query($q)or die(mysql_error());
 			echo $res;
 		}
-	*/
+	
 
 
 	/*	for($i=1;$i<16;$i++){
@@ -456,8 +462,8 @@
 		$r = mysql_fetch_array($r);
 		var_dump($r);*/
 
-		/*
-		for($i=1;$i<16;$i++){
+		
+		/*for($i=20;$i<23;$i++){
 
 			$q = "Select UPVOTE from IDEAS where IDEAID =".$i;
 			$res = mysql_query($q) or die(mysql_error());
@@ -881,12 +887,22 @@
 
 /*		mysql_query("ALTER TABLE IDEAS ADD COLUMN PATH VARCHAR(512);") or die(mysql_error());
 */
+/*
+		mysql_query("insert into IDEAS(IDEA, USERNAME, TMSTMP, ISIMPORTANT,TAG,ISIMPLEMENTED, IDEADESC,PATH) values ('New web interface rolled out!', 'zolee',now(), 1, 'idea',1,'New web interface that makes it a breeze to use - First National Bank Omaha','http://pbport.com/adi/trynewdesign.html');") or die(mysql_error());
 
-		mysql_query("insert into ideas(IDEA, USERNAME, TMSTMP, ISIMPORTANT,TAG,ISIMPLEMENTED, IDEADESC,PATH) values ('New web interface rolled out!', 'zolee',now(), 1, 'idea',1,'New web interface that makes it a breeze to use - First National Bank Omaha','http://pbport.com/adi/trynewdesign.html');") or die(mysql_error());
+		mysql_query("insert into IDEAS(IDEA, USERNAME, TMSTMP, ISIMPORTANT,TAG,ISIMPLEMENTED, IDEADESC,PATH) values ('Live Chat support in the works', 'zolee', now() +INTERVAL 1 HOUR,1,'idea',1, 'Video chat capabilities at your fingertips.','http://pbport.com/adi/chat/index.html');") or die(mysql_error());
 
-		mysql_query("insert into ideas(IDEA, USERNAME, TMSTMP, ISIMPORTANT,TAG,ISIMPLEMENTED, IDEADESC,PATH) values ('Live Chat support in the works', 'zolee', now() +INTERVAL 1 HOUR,1,'idea',1, 'Video chat capabilities at your fingertips.','http://pbport.com/adi/chat/index.html');") or die(mysql_error());
+		mysql_query("insert into IDEAS(IDEA, USERNAME, TMSTMP, ISIMPORTANT,TAG,ISIMPLEMENTED, IDEADESC,PATH) values ('One Bar','zolee', now()+INTERVAL 2 HOUR, 1, 'idea',1,'One bar to rule them all. Search, auto navigate, give feedback using one clean interface.','http://pbport.com/adi/oneBar.html')") or die(mysql_error());
+*/
 
-		mysql_query("insert into ideas(IDEA, USERNAME, TMSTMP, ISIMPORTANT,TAG,ISIMPLEMENTED, IDEADESC,PATH) values ('One Bar','zolee', now()+INTERVAL 2 HOUR, 1, 'idea',1,'One bar to rule them all. Search, auto navigate, give feedback using one clean interface.','http://pbport.com/adi/ondeBar.html')") or die(mysql_error());
 
+		/*$q = "alter table IDEAS add column SCREENSHOT varchar(512)";
+		mysql_query($q)or die(mysql_error());*/
+
+		$q = "select * from IDEAS";
+		$res = mysql_query($q) or die(mysql_error());
+		while($row = mysql_fetch_assoc($res)){
+			echo $row['IDEAID']."     ".$row['IDEA'].'<br>';
+		}
 
 ?>
