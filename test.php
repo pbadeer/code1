@@ -12,7 +12,7 @@
 	*/
 
 	
-		$users = array("albrooks",
+		/*$users = array("albrooks",
 						"alhall",
 						"alscott",
 						"anlee",
@@ -62,7 +62,7 @@
 						"sostewart",
 						"strivera",
 						"zolee");
-			
+			*/
 	
 	/*
 		$qArray = array("I love it!",
@@ -635,4 +635,39 @@
 		$rq3 = mysql_query($q3) or die(mysql_error());
 		$rq2 = mysql_query($q2) or die(mysql_error());
 		$rq1 = mysql_query($q1) or die(mysql_error());*/
+
+		/*$p = "update IDEAS set TAG='feedback' , ISIMPORTANT=1 where TAG='update'";
+		mysql_query($p) or die(mysql_error());*/
+
+
+/*
+		$q = "select USERNAME from USERS where LEVEL=3;";
+		$r = mysql_query($q);
+		while($row = mysql_fetch_assoc($r)){
+
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,3);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+		}
+
+		$q = "select USERNAME from USERS where LEVEL=4;";
+		$r = mysql_query($q);
+		while($row = mysql_fetch_assoc($r)){
+
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,8);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+		}
+
+
+		$q = "select USERNAME from USERS where LEVEL=5;";
+		$r = mysql_query($q);
+		while($row = mysql_fetch_assoc($r)){
+
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,16);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+		}*/
+
+
 ?>
