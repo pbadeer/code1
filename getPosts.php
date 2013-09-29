@@ -8,7 +8,7 @@
 	
 
 	$feed = array();
-	$fQuery = "select * from IDEAS order by TMSTMP desc LIMIT 0,".$_GET['limit'];
+	$fQuery = "select * from IDEAS order by ISIMPORTANT desc, TMSTMP desc LIMIT 0,".$_GET['limit'];
 	$fRes = mysql_query($fQuery) or die(mysql_error());
 	while($frow = mysql_fetch_assoc($fRes)){
 		$frow['TIMEAGO'] = time_elapsed_string($frow['TMSTMP']);

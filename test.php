@@ -419,7 +419,7 @@
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(9, 'Gold' , 'Idea implemented in labs. Whoo!', 'http://pbport.com/adi/badges/gold.png');",
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(10, 'Hat' , 'Posted 3 ideas. A beuatiful mind', 'http://pbport.com/adi/badges/hat.png');",
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(11, 'Heart' , 'Loving the ideas here :) ', 'http://pbport.com/adi/badges/heart.png');",
-						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(12, 'id' , '', 'http://pbport.com/adi/badges/id.png');",
+						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(12, 'id' , 'Unlocked level 2. Forging a new identity here.', 'http://pbport.com/adi/badges/id.png');",
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(13, 'Key' , 'Unlocked Level 1', 'http://pbport.com/adi/badges/key.png');",
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(14, 'Bug' , 'You are a lifesave. You caught a bug!', 'http://pbport.com/adi/badges/lifesaver.png');",
 						"insert into BADGES(BADGEID,BADGENAME,BADGEDESC,BADGEPATH) values(15, 'Bulb' , 'A smart idea posted', 'http://pbport.com/adi/badges/lightbulb.png');",
@@ -645,7 +645,15 @@
 		$r = mysql_query($q);
 		while($row = mysql_fetch_assoc($r)){
 
-			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,3);";
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,13);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,12);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+
+			/*$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,3);";
 			echo $iq.'<br>';
 			mysql_query($iq) or die(mysql_error());
 		}
@@ -654,15 +662,41 @@
 		$r = mysql_query($q);
 		while($row = mysql_fetch_assoc($r)){
 
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,13);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,12);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+
+			/*$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,3);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+
+			/*$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,8);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+		}*/
+
+
+		/*$q = "select USERNAME from USERS where LEVEL=6;";
+		$r = mysql_query($q);
+		while($row = mysql_fetch_assoc($r)){
+
+			
+
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,12);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+
+			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,3);";
+			echo $iq.'<br>';
+			mysql_query($iq) or die(mysql_error());
+
 			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,8);";
 			echo $iq.'<br>';
 			mysql_query($iq) or die(mysql_error());
-		}
-
-
-		$q = "select USERNAME from USERS where LEVEL=5;";
-		$r = mysql_query($q);
-		while($row = mysql_fetch_assoc($r)){
 
 			$iq = "insert into BADGEMAP values('".$row["USERNAME"]."' ,16);";
 			echo $iq.'<br>';
@@ -796,12 +830,63 @@
 			
 		}*/
 
-		$q = "UPDATE USERS SET ISADMIN=1 where USERNAME='zolee'";
+		/*$q = "UPDATE USERS SET ISADMIN=1 where USERNAME='zolee'";
 		mysql_query($q) or die(mysql_error());
+*/
 
 
+		/*$arr = array("update BADGES set BADGEDESC =  'Admin badge' where BADGEID= 1 ",
+					"update BADGES set BADGEDESC = 'Two ideas! On a roll' where BADGEID= 2 ",
+					"update BADGES set BADGEDESC = 'Unlocked Level 3.Savour this moment!' where BADGEID= 3 ",
+					"update BADGES set BADGEDESC =  'Posted 5 comments. Adding color' where BADGEID= 4 ",
+					"update BADGES set BADGEDESC =  'Visited for 5 consecutive days' where BADGEID= 5 ",
+					"update BADGES set BADGEDESC = 'Provided feedback. You have an eye for detail' where BADGEID= 6 ",
+					"update BADGES set BADGEDESC =  'Posted 15 comments. Leaving a trail here.'  where BADGEID= 7 ",
+					"update BADGES set BADGEDESC = 'Unlocked Level 4.' where BADGEID= 8 ",
+					"update BADGES set BADGEDESC = 'Idea implemented in labs. Whoo!' where BADGEID= 9 ",
+					"update BADGES set BADGEDESC = 'Posted 3 ideas. A beuatiful min' where BADGEID= 10 ",
+					"update BADGES set BADGEDESC =  'Loving the ideas here :)' where BADGEID= 11 ",
+					"update BADGES set BADGEDESC = 'Unlocked level 2. Forging a new identity here.' where BADGEID= 12 ",
+					"update BADGES set BADGEDESC = 'Unlocked Level 1' where BADGEID= 13 ",
+					"update BADGES set BADGEDESC = 'You are a lifesave. You caught a bug!' where BADGEID= 14 ",
+					"update BADGES set BADGEDESC =  'A smart idea posted' where BADGEID= 15 ",
+					"update BADGES set BADGEDESC =  'Level 5 unlocked. One with us' where BADGEID= 16 ",
+					"update BADGES set BADGEDESC =  'Unlocked Labs!' where BADGEID= 17 ",
+					"update BADGES set BADGEDESC =  'Laying down your roots' where BADGEID= 18 ",
+					"update BADGES set BADGEDESC =  'Has 25 upvotes. Your voice is being heard' where BADGEID= 19 ");
 
+		foreach ($arr as $key => $value) {
+			$q = mysql_query($value) or die(mysql_error());
 
+		}*/
+/*
+		$q = "alter table IDEAS add column FLAGCOUNT int DEFAULT 0;";
+		mysql_query($q);
+
+		$q = "UPDATE IDEAS SET FLAGCOUNT=4, ISFLAGGED = 1 where IDEAID=8";
+		mysql_query($q);*/
+
+/*
+
+		$q = "UPDATE IDEAS SET IDEADESC = 'Please email Dan, when M5, finally standing desk so as to Nest.
+
+		I have tried them all although Chemex first home roast, because of App Store so that BMW, on the contrary Newsstand, to Mac Pro.
+
+		AeroPress despite Tiff says, therefore Instapaper moreover Vario, personally fan noise.
+
+		Xcode after The Magazine, which second crack, above all I dont talk about The Verge I believe braaaaaaand, due to I have the cutest dog in the world.' where IDEAID between 11 and 17";
+				echo $q;
+
+		mysql_query($q) or die(mysql_error());*/
+
+/*		mysql_query("ALTER TABLE IDEAS ADD COLUMN PATH VARCHAR(512);") or die(mysql_error());
+*/
+
+		mysql_query("insert into ideas(IDEA, USERNAME, TMSTMP, ISIMPORTANT,TAG,ISIMPLEMENTED, IDEADESC,PATH) values ('New web interface rolled out!', 'zolee',now(), 1, 'idea',1,'New web interface that makes it a breeze to use - First National Bank Omaha','http://pbport.com/adi/trynewdesign.html');") or die(mysql_error());
+
+		mysql_query("insert into ideas(IDEA, USERNAME, TMSTMP, ISIMPORTANT,TAG,ISIMPLEMENTED, IDEADESC,PATH) values ('Live Chat support in the works', 'zolee', now() +INTERVAL 1 HOUR,1,'idea',1, 'Video chat capabilities at your fingertips.','http://pbport.com/adi/chat/index.html');") or die(mysql_error());
+
+		mysql_query("insert into ideas(IDEA, USERNAME, TMSTMP, ISIMPORTANT,TAG,ISIMPLEMENTED, IDEADESC,PATH) values ('One Bar','zolee', now()+INTERVAL 2 HOUR, 1, 'idea',1,'One bar to rule them all. Search, auto navigate, give feedback using one clean interface.','http://pbport.com/adi/ondeBar.html')") or die(mysql_error());
 
 
 ?>

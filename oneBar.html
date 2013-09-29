@@ -2,6 +2,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+  <style>
+#masthead .search input#searchbtn{
+  display: none;
+}
+#masthead .search input#searchbox{
+  width:46em !important;
+  height:2em;
+}
+  </style>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -19,9 +28,10 @@
 
   
 
-    <link href="bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
 
-    <link href="bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/introjs.css" rel="stylesheet">
 
 <link media="screen, print" type="text/css" rel="stylesheet" href="./MarketingWeb/internet_tip/shared-content-library/config/css/reset.css"/>
 <link media="screen, print" type="text/css" rel="stylesheet" href="./MarketingWeb/internet_tip/shared-content-library/config/css/wrapper-homepage.css"/>
@@ -164,7 +174,7 @@
         </ul>
         <div class="search">
           <form action="https://www.firstnational.com/util/searchresults.fhtml?" method="get" id="searchForm" name="search">
-            <input type="text" data-provide="typeahead" id="searchbox" value="" maxlength="256" size="15" name="q"/>
+            <input placeholder="Search something or give us feedback" type="text" data-provide="typeahead" id="searchbox" value="" maxlength="256" size="15" name="q" data-step="1" data-intro="Hello all! :) This is called the OneBar."/>
             <input name="btnG" id="searchbtn" type="image" value="search" src="./config/img/btn-search.png" alt="Search"/>
           </form>
         </div>
@@ -184,7 +194,7 @@
 <!-- 2012.10.15
   <div class="category" style="position:absolute; right:0; z-index:2000; top:-46px;">
 -->
-  <div class="category "> 
+  <div class="category " > 
       <ul class="megamenu category layout">
 
     
@@ -666,43 +676,14 @@
 		//--></script>
 		<script language="javascript" src="./MarketingWeb/internet_tip/shared-content-library/config/js/s-code-function-calls.js?v01" type="text/javascript"></script> 
      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-   <script src="bootstrap.min.js"></script>
-    <script src="bootstrap-typeahead.js"></script>
-    <script type="text/javascript" src="adi.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+    <script type="text/javascript" src="js/adi.js"></script>
+    <script type="text/javascript" src = "js/intro.js"></script>
     <script language="javascript">
 
-    function postFeedBack(fb){
-      console.log("in feedback "+fb);
-      return false;
-    }
-
-    function postIdea(idea){
-      console.log(" in idea "+idea);
-      return false;
-    }
-
-
-    function clickSub(){
-      alert($('#searchbox').val());
-      var string = $('#searchbox').val();
-      if(string.indexOf("fb") != -1 && string.indexOf("fb")==0){
-        if(string.indexOf(":")!=-1 && string.indexOf("fb") > string.indexOf(":")){
-          string = string.substring(string.indexOf(":"));
-          alert("I'm posting feedback");
-          postFeedBack(string);
-        }        
-      }else if(string.indexOf("fr") !=-1 && string.indexOf("fr") ==0){
-          if(string.indexOf(":")!=-1 && string.indexOf("fr") > string.indexOf(":")){
-          string = string.substring(string.indexOf(":"));
-          alert("I'm posting idea");
-          postIdea(string);
-        }              
-      }else{
-        $("#searchForm").submit();
-      }
-      return false;
-    }
-
+ 
+   
 
 
     function forward(obj){      
@@ -710,6 +691,8 @@
     }
 
      $(document).ready(function(){
+
+      introJs().start();
        
         $('#searchbox').typeahead({
               source: titles,              
@@ -723,9 +706,7 @@
       $("#searchForm").submit(function(event){
           
           var string = $('#searchbox').val();          
-          if(string.indexOf("fb") != -1 && string.indexOf("fb")>=0){            
-             if(string.indexOf("-")!=-1 && string.indexOf("fb") < string.indexOf("-")){
-              string = string.substring(string.indexOf("-"));              
+          if(string.length > 16){                                
               $.ajax({
                     type:'POST',
                     url: 'addFeedback.php',
@@ -746,7 +727,7 @@
                 });
               event.preventDefault();
             }        
-          }else if(string.indexOf("fr") !=-1 && string.indexOf("fr") >=0){
+          /*}else if(string.indexOf("fr") !=-1 && string.indexOf("fr") >=0){
               event.preventDefault();
               if(string.indexOf("-")!=-1 && string.indexOf("fr") < string.indexOf("-")){
               string = string.substring(string.indexOf("-"));
@@ -769,7 +750,7 @@
                     }
                 });
             }              
-          }/*else{
+          }*//*else{
             $("#searchForm").submit();
           }*/
           

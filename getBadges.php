@@ -1,5 +1,7 @@
 <?php 
 	
+	header('Content-type: application/json');
+
 	require_once("inc/config.php");
 
 	$query = "select * from BADGEVIEW where USERNAME = '".$_GET['USERNAME']."'";
