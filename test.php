@@ -899,10 +899,15 @@
 		/*$q = "alter table IDEAS add column SCREENSHOT varchar(512)";
 		mysql_query($q)or die(mysql_error());*/
 
-		$q = "select * from IDEAS";
+		/*$q = "select * from IDEAS";
 		$res = mysql_query($q) or die(mysql_error());
 		while($row = mysql_fetch_assoc($res)){
 			echo $row['IDEAID']."     ".$row['IDEA'].'<br>';
+		}*/
+
+
+		for($i=0;$i<50;$i++){
+			echo abs($i%2).'<br>';
 		}
 
 ?>
