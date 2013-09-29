@@ -512,7 +512,7 @@
 					echo '<br>';
 				}*/
 
-		$q = "SELECT USERNAME,count(*) as total from USERUPVOTES group by USERNAME";
+	/*	$q = "SELECT USERNAME,count(*) as total from USERUPVOTES group by USERNAME";
 		$res = mysql_query($q) or die(mysql_error());
 			while($row = mysql_fetch_assoc($res)){
 				$iq = "update USERS set POINTS = POINTS +".($row["total"]*10)." where USERNAME='".$row["USERNAME"]."'";
@@ -524,6 +524,23 @@
 				while($row = mysql_fetch_assoc($r)){
 					var_dump($row);
 					echo '<br>';
-				}
+				}*/
+
+
+		/*$q = "SELECT AUTHOR,count(*) as total from COMMENTS group by AUTHOR";
+		$res = mysql_query($q) or die(mysql_error());
+			while($row = mysql_fetch_assoc($res)){
+				$iq = "update USERS set POINTS = POINTS +".($row["total"]*25)." where USERNAME='".$row["AUTHOR"]."'";
+				mysql_query($iq)or die(mysql_error());
+		}
+
+		$q = "select USERNAME,POINTS from USERS";
+				$r = mysql_query($q) or die(mysql_error());
+				while($row = mysql_fetch_assoc($r)){
+					var_dump($row);
+					echo '<br>';
+				}*/
+
+
 
 ?>
