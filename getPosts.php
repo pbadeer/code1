@@ -1,5 +1,7 @@
 <?php 
 
+	header('Content-type: application/json');
+
 	require_once('inc/config.php');
 	require_once('functions.php');
 

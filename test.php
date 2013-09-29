@@ -620,7 +620,7 @@
 			echo $row['POINTS'].'<br>';
 		}*/
 
-
+/*
 		$q1 = "update USERS set LEVEL = 1 where POINTS < 100;";
 		
 		$q2 = "update USERS set LEVEL = 2 where POINTS < 250;";
@@ -634,5 +634,5 @@
 		$rq4 = mysql_query($q4) or die(mysql_error());
 		$rq3 = mysql_query($q3) or die(mysql_error());
 		$rq2 = mysql_query($q2) or die(mysql_error());
-		$rq1 = mysql_query($q1) or die(mysql_error());
+		$rq1 = mysql_query($q1) or die(mysql_error());*/
 ?>
