@@ -1,0 +1,162 @@
+.nav, .pagination, .carousel a, a[ng-click] { cursor: pointer; }
+
+.admin {
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 230px;
+    background-color: rgba(245,245,245,0.6) !important;
+}
+
+.nonadmin {
+    margin-left: 230px;
+}
+
+.well h2.sharemessage {
+    margin: 0 0 10px 0;
+}
+
+
+body {
+    padding-bottom: 65px;
+}
+html.desktop {
+    background: white url(../images/bodytile.png) repeat-x;
+}
+html.desktop body {
+    width: 960px;
+    margin: 0 auto;
+}
+
+h4 span.label {
+    font-size: 60%;
+}
+
+.btn-success,
+.label-sucess {
+    background-color: #006633 !important;
+}
+.btn-success:hover {
+    background-color: #4AAA42 !important;
+}
+.btn-primary,
+.label-success {
+    background-color: #0073AE !important;
+}
+
+textarea {
+    resize: none;
+}
+a.viewcomments {
+    margin: 0.3em 0;
+}
+.clearfix {
+    clear: both;
+}
+
+li.list-group-item a.report {
+    visibility: hidden;
+}
+li.list-group-item:hover a.report {
+    visibility: visible;
+}
+
+div.list-group-item > .actions {
+    visibility: hidden;
+}
+div.list-group-item:hover > .actions {
+    visibility: visible;
+}
+div.list-group-item:hover {
+    background-color: #EEE;
+}
+
+div.game.navbar {
+    opacity: 0.7;
+    width: 265px;
+    height: 65px;
+    border: 2px solid #006633;
+    border-radius: 0 5px 0 0;
+    border-width: 2px 2px 0 0;
+}
+div.game.navbar:hover {
+    opacity: 1;
+}
+
+div.game.navbar .progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-bottom: -3px;
+}
+
+div.game.navbar > .btn {
+    margin-top: 8px;
+}
+
+.game .navbar-brand {
+    color: #EEE !important;
+    text-transform: capitalize;
+    display: block;
+}
+
+.fade.in {
+    display: block;
+}
+.fade {
+    display: none;
+}
+
+div.list-group-item p.list-group-item-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 80%;
+}
+
+.fakefooter {
+    position: absolute;
+    width: 100%;
+    background: url(../images/footertile.png) repeat-x;
+    height: 175px;
+    text-align: center;
+    left: 0;
+}
+
+.fakehome {
+    text-align: center;
+}
+
+.modal-title {
+    text-transform: capitalize;
+}
+
+ul.typeahead {
+    width: 500px;
+    text-align: left;
+}
+ul.typeahead li a {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.pace .pace-progress {
+  background: #006633;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  height: 2px;
+
+  -webkit-transition: width 1s;
+  -moz-transition: width 1s;
+  -o-transition: width 1s;
+  transition: width 1s;
+}
+
+.pace-inactive {
+  display: none;
+}

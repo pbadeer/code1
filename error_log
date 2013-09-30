@@ -1,0 +1,11 @@
+[28-Sep-2013 10:25:23 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/pbportco/public_html/adi/test.php on line 7
+[28-Sep-2013 10:34:51 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/pbportco/public_html/adi/test.php on line 8
+[28-Sep-2013 10:35:28 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/pbportco/public_html/adi/test.php on line 8
+[28-Sep-2013 10:40:19 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/pbportco/public_html/adi/test.php on line 8
+[28-Sep-2013 10:40:47 America/Chicago] PHP Warning:  mysql_fetch_array() expects parameter 1 to be resource, boolean given in /home/pbportco/public_html/adi/test.php on line 8
+[28-Sep-2013 14:08:34 America/Chicago] PHP Parse error:  syntax error, unexpected T_VARIABLE, expecting ';' in /home/pbportco/public_html/adi/test.php on line 378
+[28-Sep-2013 17:03:26 America/Chicago] PHP Warning:  Unterminated comment starting line 144 in /home/pbportco/public_html/adi/test.php on line 144
+[28-Sep-2013 17:50:40 America/Chicago] PHP Fatal error:  Function name must be a string in /home/pbportco/public_html/adi/test.php on line 480
+[28-Sep-2013 18:23:15 America/Chicago] PHP Warning:  Unterminated comment starting line 409 in /home/pbportco/public_html/adi/test.php on line 409
+[28-Sep-2013 18:26:00 America/Chicago] PHP Warning:  Unterminated comment starting line 147 in /home/pbportco/public_html/adi/test.php on line 147
+[29-Sep-2013 13:02:34 America/Chicago] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home/pbportco/public_html/adi/test.php on line 478

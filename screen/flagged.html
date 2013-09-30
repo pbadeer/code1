@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Flagged</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap3.min.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css"/>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body ng-app="fnb" ng-controller="labs" ng-class="{desktop: mobile == false}">
+
+<p><img src="images/header.png" alt/></p>
+
+<div class="admin navbar well">
+    <h1 class="navbar-brand">Admin</h1>
+    <ul class="nav nav-pills nav-stacked clearfix">
+        <li><a href="feed.html?admin">Feedback &amp; Ideas</a></li>
+        <li class="active"><a href="flagged.html">Flagged</a></li>
+        <li><a href="stats.html">Stats</a></li>
+    </ul>
+</div>
+<div class="nonadmin">
+
+    <div class="row">
+        <div class="col-md-12">
+            <h1><span class="glyphicon glyphicon-flag"></span> Flagged</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="list-group">
+
+                <div class="list-group-item clearfix" ng-hide="hideMe" ng-repeat="post in flagged">
+                    <div class="btn-group-vertical col-md-2 col-xs-4">
+                        <button type="button" class="btn btn-default" ng-click="hideMe = true">
+                          <span class="glyphicon glyphicon-remove"></span> Delete
+                        </button>
+                        <button type="button" class="btn btn-default">
+                          <span class="glyphicon glyphicon-pencil"></span> Edit
+                        </button>
+                    </div>
+                    <div class="col-md-10 col-xs-8">
+                        <div ng-if="post.TAG">
+                            <h4 class="list-group-item-heading">
+                                <span class="glyphicon" ng-class="{'glyphicon-flash': post.TAG == 'idea', 'glyphicon-bullhorn': post.TAG == 'feedback'}"></span> {{post.IDEA}} <small>by {{post.USERNAME}}</small>
+                            </h4>
+                            <p class="list-group-item-text">{{post.IDEADESC}}</p>
+                            <span class="text-muted">{{post.TIMEAGO}}</span>
+                        </div>
+                        <div ng-if="post.COMMENTTEXT">
+                            <h4 class="list-group-item-heading">
+                                <span class="glyphicon glyphicon-comment"></span> Comment <small>by {{post.AUTHOR}}</small>
+                            </h4>
+                            <p class="list-group-item-text">{{post.COMMENTTEXT}}</p>
+                            <span class="text-muted">{{post.TIMEAGO}}</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+    <div class="game navbar navbar-inverse navbar-fixed-bottom" ng-if="game == true">
+        <span class="navbar-brand">{{user.FIRSTNAME + " " + user.LASTNAME}}</span>
+        <button type="button" class="btn btn-sm btn-info" ng-click="modal = true; modalContent = 'feed'">My Posts</button>
+        <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{getLevel(user.POINTS)[1]}}" aria-valuemin="0" aria-valuemax="100" style="width: {{getLevel(user.POINTS)[1]}}%;">{{getLevel(user.POINTS)[1]}}% to next Reward</div>
+        </div>
+    </div>
+
+<div class="fakefooter"><img src="images/footer.png" alt/></div>
+
+    <div class="modal fade" ng-class="{in: modal}">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="modal = false">&times;</button>
+                    <h4 class="modal-title">{{modalContent}}</h4>
+                </div>
+                <div class="modal-body clearfix">
+                    <div ng-if="modalContent == 'feed'" class="list-group">
+                        <div class="list-group-item clearfix" ng-hide="hideMe" ng-repeat="post in feed">
+                            <div class="btn-group-vertical col-md-3 col-xs-4">
+                                <button type="button" class="btn btn-default" ng-click="hideMe = true">
+                                  <span class="glyphicon glyphicon-remove"></span> Delete
+                                </button>
+                                <button type="button" class="btn btn-default">
+                                  <span class="glyphicon glyphicon-pencil"></span> Edit
+                                </button>
+                            </div>
+                            <div class="col-md-9 col-xs-8">
+                                <div ng-if="post.TAG">
+                                    <h4 class="list-group-item-heading">
+                                        <span class="glyphicon" ng-class="{'glyphicon-flash': post.TAG == 'idea', 'glyphicon-bullhorn': post.TAG == 'feedback'}"></span> {{post.IDEA}} <small>by {{post.USERNAME}}</small>
+                                    </h4>
+                                    <p class="list-group-item-text">{{post.IDEADESC}}</p>
+                                </div>
+                                <div ng-if="post.COMMENTTEXT">
+                                    <h4 class="list-group-item-heading">
+                                        <span class="glyphicon glyphicon-comment"></span> Comment <small>by {{post.AUTHOR}}</small>
+                                    </h4>
+                                    <p class="list-group-item-text">{{post.COMMENTTEXT}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div ng-if="modalContent == 'badges'">
+                        <div ng-repeat="badge in user.BADGES" class="col-xs-3">
+                            <img src="{{badge.BPATH}}" alt/><br/>
+                            <strong>{{badge.BNAME}}</strong><br/>
+                            <small>{{badge.BDESC}}</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="modal = false">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-backdrop fade" ng-class="{in: modal}" ng-click="modal = false"></div>
+
+    <script src="js/angularbeta.min.js"></script>
+    <script src="js/angularui-bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<link href="_css/jquery-ui/css/south-street/jquery-ui-1.10.3.custom.min.css" rel="stylesheet" type="text/css"/>
+	<head>
+		<title>Personal, First National Bank</title>
+	</head>
+	<body>
+		<style>
+			#oldDesign{
+				background-image: url('_images/page1-original.jpg');
+				background-repeat: no-repeat;
+				background-position: center;
+				width: 1600px;
+				height: 784px;
+				margin: 0 auto;
+			}
+			#newDesign{
+				background-image: url('_images/page1-experimental.jpg');
+				background-repeat: no-repeat;
+				background-position: center;
+				width: 1600px;
+				height: 784px;
+				display: none;
+				margin: 0 auto;
+			}
+			#try_new_design{
+				float: right;
+				font-size: 24px;
+				margin-top: 730px;
+				background-color: #006f51;
+				color: #fff;
+			}
+		</style>
+	
+		<div id="oldDesign"> 
+		
+			<input type="button" value="Try New Design" id="try_new_design" />	
+		</div>
+		
+		<div id="popUp" title="Please read carefully before agreeing">
+			<h3>Terms &amp; Conditions</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce imperdiet, odio at tristique porttitor, odio ante euismod risus, in tristique erat odio et nulla. Aenean a eros volutpat, tincidunt justo vel, rhoncus ante. Nulla pharetra lacus vitae augue facilisis fermentum. Integer ornare, arcu id sollicitudin eleifend, enim sapien tempus tortor, sed suscipit diam ipsum vitae nulla. Nunc vestibulum ultricies ante, rhoncus congue diam mollis ut. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce vel dui ultrices, placerat orci et, tempus nibh. Aliquam erat volutpat. Phasellus a feugiat purus. In et dui risus.<br><br>
+
+Pellentesque pellentesque neque non tempus egestas. Duis blandit turpis nisl, ac sollicitudin diam accumsan et. Nam et molestie purus. In hac habitasse platea dictumst. Aliquam lobortis, erat et consectetur ultricies, mauris erat tempor ligula, et rhoncus libero enim eu massa. Nulla aliquam est non consectetur luctus. Pellentesque enim augue, mattis vitae felis ac, consectetur sagittis dolor. Etiam interdum sodales neque, sit amet viverra nisi tincidunt eu. Suspendisse sit amet risus rutrum, bibendum magna luctus, fringilla ipsum. Sed cursus est sed nisi ultrices euismod. Donec sit amet auctor nisl.<br><br>
+
+Vestibulum mollis magna sit amet tempus posuere. Cras condimentum ultricies dui non viverra. Nam at ipsum est. Mauris bibendum accumsan tempus. In ultricies euismod risus a ultrices. Proin iaculis ullamcorper purus, vel eleifend purus pharetra ac. Integer tempor vehicula pharetra. Cras at blandit sem, eu dictum lacus. Vivamus risus diam, porttitor at massa non, rhoncus semper mi. Nunc nibh sapien, sodales a nunc et, imperdiet ornare diam. Donec malesuada lacinia odio, quis volutpat quam sagittis vestibulum. Aliquam sollicitudin ligula non lacus dignissim, a laoreet nisi sollicitudin.<br><br>
+
+Duis consequat mattis magna, eget dapibus purus pulvinar sit amet. Morbi in risus quis tortor vehicula imperdiet id eget mauris. Integer nulla nulla, euismod et vulputate eget, molestie at nisl. Suspendisse quis velit erat. Phasellus hendrerit purus at ipsum sollicitudin, at tincidunt velit ornare. Praesent scelerisque fringilla lobortis. Nam imperdiet arcu at dui tempus suscipit a sit amet risus. Ut porttitor vehicula lectus. Curabitur ac purus lacus. Phasellus dignissim quis metus vitae sollicitudin. Praesent sagittis et orci at porttitor. Maecenas sit amet augue vel orci tincidunt fringilla vitae id libero. Nulla et lectus vel urna facilisis semper. Curabitur malesuada tristique eros quis pulvinar. Nunc lectus dui, dapibus sed pretium ac, pulvinar vel magna.</p>
+		</div>
+		
+		
+		
+		<div id="newDesign"> </div>
+		
+		<script>
+			$("#try_new_design").click(function(){
+				$("#popUp").dialog("open");
+			});
+		
+			$( "#popUp" ).dialog({
+		      height:300,
+		      width: 500,
+        	  autoOpen: false,
+		      modal: true,
+		      buttons: {
+		        "I agree": function() {
+		          $( this ).dialog( "close" );
+		          $("#oldDesign").fadeOut('fast',function(){
+		          	$("#newDesign").fadeIn('fast');
+		          });
+		        },
+		        Cancel: function() {
+		          $( this ).dialog( "close" );
+		        }
+		      }
+		    });
+		</script>
+		
+	</body>
+</html>
